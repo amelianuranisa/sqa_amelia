@@ -1,0 +1,29 @@
+def hitung_gaji(jam_kerja, gaji_normal_per_jam, gaji_lembur_per_jam):
+    gaji_normal = jam_kerja * gaji_normal_per_jam
+    gaji_lembur = (jam_kerja - 40) * (3/2 * gaji_normal_per_jam)
+    total_gaji = gaji_normal + gaji_lembur
+    return total_gaji
+
+def hitung_tabungan(total_gaji, pengeluaran):
+    if total_gaji > pengeluaran:
+        return total_gaji - pengeluaran, "Bisa menabung"
+    elif total_gaji == pengeluaran:
+        return 0, "Tidak bisa menabung"
+    else:
+        return 0, "Cari tambahan"
+
+# Data
+jam_kerja = 52
+gaji_normal_per_jam = 15000
+gaji_lembur_per_jam = 3/2 * gaji_normal_per_jam
+pengeluaran = 6000000
+
+# Menghitung gaji
+total_gaji = hitung_gaji(jam_kerja, gaji_normal_per_jam, gaji_lembur_per_jam)
+
+# Menghitung tabungan
+tabungan, status = hitung_tabungan(total_gaji, pengeluaran)
+
+print(f"Total Gaji: Rp. {total_gaji}")
+print(f"Tabungan: Rp. {tabungan}")
+print(f"Status: {status}")
